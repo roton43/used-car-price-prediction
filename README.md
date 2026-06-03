@@ -53,10 +53,10 @@ An end-to-end machine learning project that predicts the **resale price of used 
 
 Deployed using Streamlit Cloud.
 
-🔗 **Live URL:** [https://your-app-url.streamlit.app](https://your-app-url.streamlit.app)
+🔗 **Live URL:** https://used-car-price-prediction-by-roton-ahmed.streamlit.app/
 
 ### Screenshots
-![Streamlit App](screenshots/streamlit_app.png)
+![used-car-price-prediction/screenshots/streamlit_app.png]
 
 ---
 
