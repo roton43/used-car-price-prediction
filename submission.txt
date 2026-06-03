@@ -1,0 +1,54 @@
+Used Car Price Prediction — Kawchar Husain
+==========================================
+
+GitHub Repository : https://github.com/yourusername/used-car-price-prediction
+Live App          : https://your-app-url.streamlit.app
+
+─────────────────────────────────────────
+Key EDA Findings:
+─────────────────────────────────────────
+- Present_Price has the strongest correlation with Selling_Price (r ≈ 0.95),
+  making it by far the most predictive feature.
+- Diesel cars tend to have higher selling prices than Petrol or CNG cars,
+  reflecting their premium fuel efficiency and higher original sticker prices.
+- Cars older than 10 years show a sharp drop in resale value; Car_Age (derived
+  from the Year column) captures this relationship effectively.
+- Manual transmission dominates the dataset (over 87% of listings), while
+  Automatic cars are fewer but priced higher on average.
+- Kms_Driven has a weak negative correlation with Selling_Price and contains
+  outliers that were capped at the 99th percentile during preprocessing.
+
+─────────────────────────────────────────
+Features Used:
+─────────────────────────────────────────
+Present_Price, Kms_Driven, Car_Age, Fuel_Type, Seller_Type, Transmission, Owner
+
+(Car_Name was dropped — high cardinality, low signal.
+ Year was replaced by Car_Age = 2024 - Year.)
+
+─────────────────────────────────────────
+Model Comparison:
+─────────────────────────────────────────
+Model                  Train R2    Test R2    Test RMSE
+──────────────────────────────────────────────────────
+Linear Regression      0.9895      0.9861     0.4889
+Ridge Regression       0.9895      0.9861     0.4889
+Random Forest          0.9964      0.9763     0.6402
+XGBoost                0.9999      0.9731     0.6811
+LightGBM               0.9942      0.9687     0.7346
+
+─────────────────────────────────────────
+Final Model:
+─────────────────────────────────────────
+Model     : Linear Regression
+Test R2   : 0.9861
+Test RMSE : 0.4889 Lakhs
+
+Why Linear Regression:
+  Linear Regression achieves the highest Test R² with the smallest train-test
+  gap (0.003), indicating no overfitting. The target Selling_Price has a near-
+  linear relationship with Present_Price and Car_Age — the two most important
+  features identified in EDA. XGBoost overfit heavily (Train R²=0.9999 vs
+  Test R²=0.9731), confirming that model complexity added noise rather than
+  signal. Ridge Regression performs identically to Linear Regression at alpha=1.0
+  because there was minimal multicollinearity to regularise.

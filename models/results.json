@@ -1,0 +1,30 @@
+{
+  "results": {
+    "Linear Regression": {
+      "Train R2": 0.9895,
+      "Test R2": 0.9861,
+      "Test RMSE": 0.4889
+    },
+    "Ridge Regression": {
+      "Train R2": 0.9895,
+      "Test R2": 0.9861,
+      "Test RMSE": 0.4889
+    },
+    "Random Forest": {
+      "Train R2": 0.9964,
+      "Test R2": 0.9763,
+      "Test RMSE": 0.6402
+    },
+    "XGBoost": {
+      "Train R2": 0.9999,
+      "Test R2": 0.9731,
+      "Test RMSE": 0.6811
+    },
+    "LightGBM": {
+      "Train R2": 0.9942,
+      "Test R2": 0.9687,
+      "Test RMSE": 0.7346
+    }
+  },
+  "best_model": "Linear Regression"
+}
